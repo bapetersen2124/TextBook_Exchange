@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book Barter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to "Home", "/" %></li>
+            <li class="dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> Filter by Subject</a>
+              <ul class="dropdown-menu">
+                <% @categories.each do |category| %>
+                <li> <%= link_to category.subject, textbooks_by_subject_path(category_id: category.id) %> </li>
+                <% end %>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> Filter by Level</a>
+              <ul class="dropdown-menu">
+                <% Book::LEVELS.each do |level| %>
+                <li> <%= link_to level, textbooks_by_level_url(level_id: level) %> </li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            <li class="dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= current_user.email %></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Edit Profile",  edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "Your Activity", profile_history_url %>
+              </ul>
+            </li>
+            <% else %>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

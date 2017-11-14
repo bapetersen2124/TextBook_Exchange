@@ -1,0 +1,95 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+  <div id="Barter-Carousel" class="carousel slide" data-interval="10000" data-ride="carousel" style="background:#f6f7f9 !important">
+    <div> &nbsp; </div>
+    <div> &nbsp; </div>
+    <ol class="carousel-indicators">
+      <li data-target="#Barter-Carousel" data-slide-to: "0" class="active"></li>
+      <li data-target="#Barter-Carousel" data-slide-to: "1"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag ('/assets/education-2835912_640.jpg'), class:"center" %>
+          <div class="carousel-caption">
+            <h3 class="white-carousel">College Can Be Expensive</h3>
+            <h5 class="white-carousel">Learning Doesn't Have To Be</h5>
+          </div>
+      </div>
+      <div class="item">
+        <%= image_tag ('/assets/education-2835953_640.jpg'), class:"center" %>
+          <div class="carousel-caption">
+            <h3 class="dark-gray-carousel">Buy & Sell Textbooks Online</h3>
+            <h5 class="dark-gray-carousel">Powered By Students</h5>
+          </div>
+      </div>
+    </div>
+    <a class="carousel-control left" href="#Barter-Carousel" data-slide="prev" style="background:#f6f7f9 !important">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#Barter-Carousel" data-slide="next" style="background:#f6f7f9 !important">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+
+
+<div class="container">
+
+<div class="h1-center">
+  <h1 id="new-additions" class="btn btn-success new-additions">Newest Additions</h1>
+</div>
+
+<table id="top-additions" class="table table-striped">
+  <thead>
+    <tr>
+      <th class="col-md-2 center">Subject</th>
+      <th class="col-md-2 center">Title</th>
+      <th class="col-md-2 center">Author</th>
+      <th class="col-md-1 center">Price</th>
+      <th class="col-md-3 center">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td class="center"><%= book.category.try :subject %></td>
+        <td class="center"><a href="#" data-toggle="modal" data-target="#myModal">
+            <%= book.title.truncate_words(4) %>
+          </a></td>
+        <td class="center"><%= book.author.truncate_words(3) %></td>
+        <td class="center"><%= number_to_currency book.price %></td>
+        <td class="center"><%= book.description.truncate_words(10) %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <!-- Begin Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><%= link_to book.title, book %></h4>
+            </div>
+            <div class="modal-body align-center">
+              <p><%= image_tag book.image, class:"show-image" %></p>
+              <div>&nbsp;</div>
+              <p><%= book.title%>, <%= book.edition %> edition, <%= book.year_published %></p>
+              <p><%= book.author %></p>
+              <p><%= book.description %></p>
+              <p><%= book.category.subject %></p>
+              <p><%= number_to_currency book.price %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Modal -->
+    <% end %>
+  </tbody>
+</table>
+  <div class="row col-md-12 new-book-align">
+    <%= link_to 'New Book', new_book_path %>
+  </div>
+  <div> &nbsp; </div>
+<br>
+
+</div>

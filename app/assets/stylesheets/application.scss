@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$icon-font-path: 'bootstrap/';
+
+@import 'bootstrap';
+@import 'bootstrap-sprockets';
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
+//nav
+
+//forms
+.index-left {
+  padding-left: 0px;
+}
+
+.center {
+  text-align: center;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  text-decoration:none;
+  font-weight:bold;
+  color: #000;
+}
+
+.form-outline {
+  padding: 0% 35%;
+};
+
+.form-header {
+  text-align: center;
+};
+
+.submit-styling {
+  background-color: transparent;
+  border: none;
+};
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+//books views
+
+.dark-gray-carousel {
+  color: #9b9b9b;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .15em;
+}
+
+.white-carousel {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .15em;
+}
+
+.center{
+    margin: 0 22.5%;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-color: transparent;
+    opacity: 1;
+}
+
+.carousel-caption {
+  text-align: center;
+}
+
+.h1-center {
+  margin: 2% 42%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.new-additions {
+  padding: 15px;
+  font-size: 18px;
+  font-family: 'Poppins';
+  color: #fff;
+}
+
+.new-book-align {
+  text-align:center;
+  margin: 0 auto;
+}
+
+.show-image {
+  max-height: 250px;
+  width: auto;
+}
+
+.align-center {
+  text-align:center;
+}

@@ -1,0 +1,43 @@
+<div class="container show-center">
+  <div>&nbsp;</div>
+
+<div class="center">
+  <div>&nbsp;</div>
+    <p>
+      <%= image_tag @book.image, class:"show-image" %>
+    </p>
+
+    <div>&nbsp;</div>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @book.title %>
+    </p>
+
+    <p>
+      <strong>Author:</strong>
+      <%= @book.author%>
+    </p>
+
+    <p>
+      <strong>Subject:</strong>
+      <%= @book.category.try :subject %>
+    </p>
+
+    <p>
+      <strong>Price</strong>
+      <%= number_to_currency @book.price%>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @book.description %>
+    </p>
+
+
+
+    <%= link_to 'Edit', edit_book_path(@book) %> |
+    <%= link_to 'Back', book_path %>
+    <div>&nbsp;</div>
+  </div>
+</div>
