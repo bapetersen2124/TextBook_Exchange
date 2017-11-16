@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
     <% @books.each do |book| %>
-    <div class="col-md-4">
+    <div class="col-md-4 modal-background">
       <div class="well center-it">
         <div class="align-center">
           <%= image_tag book.image, class:"show-image" %>
         </div>
         <div>&nbsp;</div>
         <div class="align-center">
-          <p><a href="#" data-toggle="modal" id="link_<%=book.id%>" data-target="#myModal_<%=book.id%>"><span class="glyphicon glyphicon-plus"></span> <%= book.title %></a></p>
+          <p><a href="#" data-toggle="modal" id="link_<%=book.id%>" data-target="#myModal_<%=book.id%>"><span class="glyphicon glyphicon-plus"></span> <%= book.title.truncate_words(3) %></a></p>
         </div>
       </div>
     </div>

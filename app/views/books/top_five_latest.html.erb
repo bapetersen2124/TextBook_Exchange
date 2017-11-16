@@ -1,6 +1,6 @@
 <!-- <p id="notice"><%= notice %></p> -->
-
-  <div id="Barter-Carousel" class="carousel slide" data-interval="10000" data-ride="carousel" style="background:#f6f7f9 !important">
+<div class="home-background book-views">
+  <div id="Barter-Carousel" class="carousel slide" data-interval="4000" data-ride="carousel" >
     <div> &nbsp; </div>
     <ol class="carousel-indicators">
       <li data-target="#Barter-Carousel" data-slide-to: "0" class="active"></li>
@@ -8,24 +8,24 @@
     </ol>
     <div class="carousel-inner">
       <div class="item active">
-        <%= image_tag ('/assets/education-2835912_640.jpg'), class:"center" %>
+        <%= image_tag ('/assets/education-2835912_640.jpg'), class:"center carousel-image-background" %>
           <div class="carousel-caption">
             <h3 class="white-carousel">College Can Be Expensive</h3>
             <h5 class="white-carousel">Learning Doesn't Have To Be</h5>
           </div>
       </div>
       <div class="item">
-        <%= image_tag ('/assets/education-2835953_640.jpg'), class:"center" %>
+        <%= image_tag ('/assets/education-2835953_640.jpg'), class:"center carousel-image-background" %>
           <div class="carousel-caption">
             <h3 class="dark-gray-carousel">Buy & Sell Textbooks Online</h3>
             <h5 class="dark-gray-carousel">Powered By Students</h5>
           </div>
       </div>
     </div>
-    <a class="carousel-control left" href="#Barter-Carousel" data-slide="prev" style="background:#f6f7f9 !important">
+    <a class="carousel-control left carousel-background" href="#Barter-Carousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
-    <a class="carousel-control right" href="#Barter-Carousel" data-slide="next" style="background:#f6f7f9 !important">
+    <a class="carousel-control right carousel-background" href="#Barter-Carousel" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
     <div>&nbsp;</div>
@@ -39,7 +39,7 @@
 </div>
 
 
-<table id="top-additions" class="table table-striped"  style="display:none;">
+<table id="top-additions" class="table input-form"  style="display:none;">
   <thead>
     <tr>
       <th class="col-md-2 center">Subject</th>
@@ -50,27 +50,28 @@
   </thead>
 
   <tbody>
-    <% @books.each do |book| %>
+    <% @book.each do |b| %>
       <tr>
-        <td class="center"><%= book.category.try :subject %></td>
-        <td class="center" ><a data-toggle="popover" data-placement="right" data-animation="true" data-trigger="hover" title="<%= book.title %>" data-content="<%= book.description %>">
-            <%= book.title.truncate_words(4) %>
+        <td class="center"><%= b.category.try :subject %></td>
+        <td class="center" ><a data-toggle="popover" data-placement="right" data-animation="true" data-trigger="hover" title="<%= b.title %>" data-content="<%= b.description %>">
+            <%= b.title.truncate_words(4) %>
           </a></td>
-        <td class="center"><%= book.author.truncate_words(3) %></td>
-        <td class="center"><%= number_to_currency book.price %></td>
-        <td><%= link_to 'Edit', edit_book_path(book), class:"col-md-1" %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class:"col-md-1" %></td>
+        <td class="center"><%= b.author.truncate_words(3) %></td>
+        <td class="center"><%= number_to_currency b.price %></td>
+        <td><%= link_to 'Edit', edit_book_path(b), class:"col-md-1" %></td>
+        <td><%= link_to 'Destroy', b, method: :delete, data: { confirm: 'Are you sure?' }, class:"col-md-1" %></td>
       </tr>
       <!-- Begin Popover -->
     <% end %>
   </tbody>
 </table>
 <div class="row col-md-12 new-book-align">
-  <%= link_to 'New Book', new_book_path %>
+  <%= link_to 'New Listing', new_book_path, class:"white-carousel" %>
 </div>
 
 
   <div> &nbsp; </div>
 <br>
 
+</div>
 </div>
