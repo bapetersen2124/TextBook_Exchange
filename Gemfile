@@ -23,6 +23,8 @@ gem 'rails_12factor'
 gem 'coffee-rails', '~> 4.2'
 # Use carrierwave to set user avatars
 gem 'carrierwave'
+gem 'fog'
+gem 'figaro'
 # Use bootstrap for page design
 gem 'bootstrap-sass'
 # Replacing sqlite3
