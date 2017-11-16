@@ -25,6 +25,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'carrierwave'
 # Use bootstrap for page design
 gem 'bootstrap-sass'
+# Replacing sqlite3
+gem 'pg'
 # Use Jquery for needed jquery
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
