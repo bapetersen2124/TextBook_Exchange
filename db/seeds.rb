@@ -22,5 +22,6 @@ categories = Category.create([
   {subject: "Physical Sciences"},
   {subject: "Chemistry"},
   {subject: "Computer Science and Programming"},
-  {subject: "Engineering and Math"}
+  {subject: "Engineering and Math"},
+  {subject: "Other"}
 ])

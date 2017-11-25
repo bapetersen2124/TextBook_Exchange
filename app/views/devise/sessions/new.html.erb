@@ -1,4 +1,4 @@
-<div class="form-outline form-background book-views">
+<div class="form-outline form-background book-views poppins">
   <div>&nbsp;</div>
   <div>&nbsp;</div>
 
@@ -28,6 +28,8 @@
         <%= f.label :remember_me %>
       </div>
     <% end -%>
+
+    <%= form.hidden_field :buyer_id, value: current_user.id %>
 
     <div class="actions btn btn-primary">
       <%= f.submit "Log in", class:"submit-styling" %>

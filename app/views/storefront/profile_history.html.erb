@@ -1,9 +1,10 @@
-<div class="home-background book-views">
+<div class="home-background book-views poppins">
   <div class="container">
     <h1 class="white-head">Here's a History of What You've Listed:</h1>
   </div>
   <div>&nbsp;</div>
-  <table class=" container input-form">
+<div class="container">
+  <table class="table input-form">
   <thead>
     <tr>
       <th class="col-md-2 center">Subject</th>
@@ -16,14 +17,14 @@
     <% @books.each do |book| %>
      <tr>
        <td class="center"><%= book.category.try :subject %></td>
-       <td class="center"><%= book.title %></td>
-       <td class="center"><%= book.author %></td>
+       <td class="center"><%= book.title.truncate_words(4) %></td>
+       <td class="center"><%= book.author.truncate_words(3) %></td>
        <td class="center"><%= book.price %></td>
      </tr>
      <% end %>
   </tbody>
 </table>
-
+</div>
   <div> &nbsp; </div>
 <br>
 

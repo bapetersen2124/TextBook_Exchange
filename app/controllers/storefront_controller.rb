@@ -1,5 +1,7 @@
 class StorefrontController < ApplicationController
 
+  before_action :authenticate_user!, only:[:profile_history]
+
   def all_textbooks
     @books = Book.all
   end

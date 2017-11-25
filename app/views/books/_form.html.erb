@@ -13,56 +13,56 @@
   <% end %>
 
 <div class="row">
-  <div class="col-md-12 form-group">
+  <div class="col-md-12 form-group poppins">
     <%= form.label :title %>
     <%= form.text_field :title, id: :book_title, class:"form-control" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12 form-group">
+  <div class="col-md-12 form-group poppins">
     <%= form.label :author %>
     <%= form.text_field :author, id: :book_author, class:"form-control" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12 form-group">
+  <div class="col-md-12 form-group poppins">
     <%= form.label :publisher %>
     <%= form.text_field :publisher, id: :book_publisher, class:"form-control" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12 form-group">
+  <div class="col-md-12 form-group poppins">
     <%= form.label :edition %>
     <%= form.text_field :edition, id: :book_edition, class:"form-control" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12 form-group">
+  <div class="col-md-12 form-group poppins">
     <%= form.label :year_published %>
     <%= form.text_field :year_published, id: :book_year_published, class:"form-control" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12 form-group">
+  <div class="col-md-12 form-group poppins">
     <%= form.label :price %>
     <%= form.text_field :price, id: :book_price, class:"form-control" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-12 form-group">
+  <div class="col-md-12 form-group poppins">
     <%= form.label :description %>
     <%= form.text_area :description, id: :book_description, class:"form-control" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="form-group col-md-12">
+  <div class="form-group col-md-12 poppins">
     <%= form.label :subject %>
     <%= form.select :category_id, @categories.all.collect {|c| [c.subject, c.id]}, {include_blank: "Please select a category"}, class:"form-control" %>
   </div>
@@ -71,7 +71,7 @@
 <%= form.hidden_field :seller_id, value: current_user.id %>
 
 <div class="row">
-  <div class="container form-group col-md-12">
+  <div class="container form-group col-md-12 poppins">
     <strong>Upload an Image:</strong>
     <%= form.file_field :image %>
   </div>
@@ -81,7 +81,7 @@
 
 <div class="row">
 <div class="container">
-  <div class="actions btn btn-primary">
+  <div class="actions btn btn-primary poppins">
     <%= form.submit "Submit", class:"submit-styling" %>
   </div>
 </div>

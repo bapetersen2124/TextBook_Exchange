@@ -1,0 +1,40 @@
+<div class="cart-background form-outline book-views">
+<div>&nbsp;</div>
+<div class="input-form poppins">
+  <h2 class="form-header">In Your Cart</h2>
+
+
+    <div class="input-form modal-background">
+      <table>
+        <% @line_items.each do |line_item| %>
+          <tr>
+            <td>Title:</td>
+            <td style="width: 15px;">&nbsp;</td>
+            <td><%= line_item.book.title %></td>
+          </tr>
+          <tr>
+            <td>Price:</td>
+            <td>&nbsp;</td>
+            <td><%= number_to_currency line_item.book.price %></td>
+          </tr>
+          <tr>
+            <td>Quantity:</td>
+            <td>&nbsp;</td>
+            <td><%= line_item.quantity %></td>
+          </tr>
+          <tr>
+            <td>Subtotal:</td>
+            <td>&nbsp;</td>
+            <td><%= number_to_currency line_item.line_item_total %></td>
+          </tr>
+          <tr>
+            <td><br/></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div>
+      <%= link_to "Proceed to Checkout?", checkout_path, class:"btn btn-success center" %>
+    </div>
+</div>
+</div>

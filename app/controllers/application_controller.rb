@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   before_action :set_categories
   before_action :set_levels
 
+  helper_method :current_order
+
+  def current_order
+    if session[:order_id]
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
+
   def index
     @books = Book.all
   end
@@ -21,4 +31,5 @@ class ApplicationController < ActionController::Base
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :name])
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :name])
   # end
+
 end

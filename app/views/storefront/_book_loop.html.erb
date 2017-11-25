@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <% @books.each do |book| %>
-    <div class="col-md-4 modal-background">
+    <div class="col-md-4 modal-background poppins">
       <div class="well center-it">
         <div class="align-center">
           <%= image_tag book.image, class:"show-image" %>
@@ -29,6 +29,15 @@
         <p><%= book.category.subject %></p>
         <p><%= number_to_currency book.price %></p>
         <p><%= link_to 'Edit', edit_book_path(book) %></p>
+      </div>
+      <div class="modal-footer">
+        <p>
+          <%= form_tag add_to_cart_path do %>
+            <%= hidden_field_tag :book_id, book.id %>
+            <%= number_field_tag :quantity, nil, placeholder: "How many?" %>
+            <%= submit_tag "Add to Cart", class:"btn btn-primary" %>
+          <% end %>
+        </p>
       </div>
     </div>
   </div>

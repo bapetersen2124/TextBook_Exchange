@@ -1,0 +1,29 @@
+<div class="cart-background form-outline book-views">
+<div>&nbsp;</div>
+<div class="input-form poppins">
+  <h2 class="form-header">Let's Review Your Order</h2>
+
+    <div class="input-form modal-background">
+      <% @order.order_items.each do |key, value| %>
+        <ul style="padding: 0;">
+          <li><%= Book.find(key).title %>, <%= Book.find(key).author %></li>
+          <li><%= value %> @ <%= number_to_currency Book.find(key).price %> each</li>
+        </ul>
+      <% end %>
+    <p>
+      <strong>Subtotal:</strong> <%= number_to_currency @order.subtotal %>
+    </p>
+    <p>
+      <strong>Sales Tax:</strong> <%= number_to_currency @order.sales_tax %>
+    </p>
+    <p>
+      <strong>Order Total:</strong> <%= number_to_currency @order.grand_total %>
+    </p>
+    </div>
+
+    <div class="center">
+      <%= link_to "Buy Now", checkout_path, class:"btn btn-success center" %>
+    </div>
+
+</div>
+</div>

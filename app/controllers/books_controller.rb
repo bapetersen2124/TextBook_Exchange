@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only:[:new]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!,
-                except: [:show]
+
 
 
   # GET /books
@@ -33,6 +33,10 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.create(book_params)
+
+    # if !user_signed_in
+    #   redirect_back(fallback_location: new_user_session_path)
+    # end
 
     respond_to do |format|
       if @book.save
@@ -91,8 +95,8 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :publisher, :image, :edition, :year_published, :price, :description, :category_id, :level, :seller_id)
+      params.require(:book).permit(:title, :author, :publisher, :image, :edition, :year_published, :price, :description, :category_id, :level, :seller_id, :quantity, :book_id, :buyer_id)
     end
+    # Never trust parameters from the scary internet, only allow the white list through.
 end

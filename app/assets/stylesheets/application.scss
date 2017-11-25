@@ -65,8 +65,31 @@ a.gray {
   background-image: url('/assets/typewriter.jpg');
 }
 
+.cart-background {
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  background-image: url('/assets/cart-pages.jpg');
+}
+
+.poppins {
+  font-family: 'Poppins'
+}
+
 h1.white-head {
   color: #f6f7f9;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .05em;
+}
+
+h2.white-head {
+  color: #f6f7f9;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .05em;
+}
+
+.text-left {
+  text-align:left;
 }
 
 .modal-background {
@@ -149,6 +172,12 @@ span ul {
   color: #fff !important;
   font-family: 'Poppins', sans-serif;
   letter-spacing: .15em;
+}
+
+.white {
+  color: #fff !important;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .05em;
 }
 
 .center{
